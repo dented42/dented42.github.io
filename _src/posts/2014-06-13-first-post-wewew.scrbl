@@ -1,11 +1,17 @@
 #lang scribble/manual
 
+@require["utils/scribble.rkt"]
+
 Title: First Post! wewew
 Date: 2014-06-13T22:50:12
-Tags: DRAFT
+Tags: Meta, Blog, Personal
 
-Replace this with your post text. Add one or more comma-separated
-Tags above. The special tag `DRAFT` will prevent the post from being
-published.
+@TODO{Say Hello}
 
 <!-- more -->
+
+@TODO{Introduce Myself}
+
+@TODO{Introduce Blog}
+
+@TODO{What kind of material goes here?}
