@@ -1,8 +1,48 @@
-#! /bin/bash
+#! /usr/local/bin/bash
 
-raco frog --clean
-rm -rfv blog
-rm -rfv feeds
-rm -rfv tags
-rm -fv About.html
-rm -fv sitemap.txt
+ARGS=$*
+if [[ $# -eq 0 ]]
+then
+    ARGS=('all')
+fi
+
+for arg in $ARGS
+do
+    case $arg in
+
+	all|frog)
+            # run frogs clean
+	    raco frog --clean
+	    ;;&
+
+	all|dir)
+            # remove empty directories
+	    rm -rfv blog
+	    rm -rfv feeds
+	    rm -rfv tags
+	    ;;&
+
+	all|sitemap)
+            # remove sitemap
+	    rm -fv sitemap.txt
+	    ;;&
+	
+	all|nonpost)
+            # remove non-post pages
+	    for src in `ls -A1F _src | ggrep -Po '(.+)(?=.scrbl$|.md$)'`
+	    do
+		rm -fv $src.html
+	    done
+	    ;;&
+	
+	scrub)
+            # scrub all top level html files
+	    for tophtml in `ls -A1F | egrep '.html$'`
+	    do
+		rm -fv $tophtml
+	    done
+	;;&
+
+    esac
+done
+
