@@ -1,0 +1,8 @@
+#! /bin/bash
+
+raco frog --clean
+rm -rfv blog
+rm -rfv feeds
+rm -rfv tags
+rm -fv About.html
+rm -fv sitemap.txt
