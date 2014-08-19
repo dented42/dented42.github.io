@@ -19,8 +19,6 @@ of selections without much trouble by taking advantage of @api["NSViewController
 
 <!-- more -->
 
-@TODO{Don't publish until the frog bug dealing with the <!--more--> comment is dealt with.}
-
 stuff
 
 @pygment-code[#:lang "objc"]|{
