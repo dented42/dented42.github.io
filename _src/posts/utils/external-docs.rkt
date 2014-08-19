@@ -1,8 +1,8 @@
 #lang racket
 
 (provide define-documentation-links
-         apple-ref cocoa-class-ref
-         api doc-link)
+         cocoa-class-ref
+         api)
 
 (require racket/generic
          scribble/base
@@ -10,7 +10,7 @@
          (for-syntax syntax/parse)
          "scribble.rkt")
 
-(define current-apple-doc-urls
+(define current-doc-urls
   (make-parameter '()))
 
 (define current-apple-doc-base-url
@@ -22,43 +22,44 @@
 (define-syntax (define-documentation-links stx)
   (syntax-parse stx
     [(_ (name:str url:expr) ...)
-     #`(current-apple-doc-urls
+     #`(current-doc-urls
         (cons (make-hash (list (cons name url) ...))
-              (current-apple-doc-urls)))]))
+              (current-doc-urls)))]))
 
 (define-generics url-ref
   [ref->url url-ref]
+  [ref-style url-ref content]
+  [api-ref? url-ref]
   #:defaults ([string?
-               (define ref->url identity)]))
+               (define ref->url identity)])
+  #:fallbacks [(define api-ref? (const #f))
+               (define (ref-style ref content) content)])
 
-(struct apple-ref (file) #:transparent
+(struct cocoa-class-ref (base class)
+  #:transparent
   #:methods gen:url-ref
-  [(define (ref->url ref)
-     (apple-url (apple-ref-file ref)))])
-(struct cocoa-class-ref (method) #:transparent)
+  [(define api-ref? (const #t))
+   (define (ref-style ref content)
+     (racketidfont content))
+   (define (ref->url ref)
+     (apple-url "mac/documentation/"
+                (cocoa-class-ref-base ref)
+                "/"
+                (cocoa-class-ref-class ref)
+                "_Class"))])
 
-(define (lookup-apple-url name)
-  (define (lookup doc-urls)
+(define (lookup-ref name (doc-urls (current-doc-urls)))
+  (define (lookup urls)
     (cond
-      [(null? doc-urls) #f]
-      [(hash-has-key? (car doc-urls) name)
-       (ref->url (hash-ref (car doc-urls) name))]
+      [(null? urls) #f]
+      [(hash-has-key? (car urls) name)
+       (hash-ref (car urls) name)]
       [else
-       (lookup (cdr doc-urls))]))
-  (lookup (current-apple-doc-urls)))
+       (lookup (cdr urls))]))
+  (lookup doc-urls))
 
 (define (api name (title name))
-  (doc-link name (racketidfont title)))
-
-(define (doc-link name (title name))
-  (let ([url (lookup-apple-url name)])
+  (let* ([ref (lookup-ref name)])
     (if url
-        (hyperlink (string-append "https://developer.apple.com/library/" url) title)
+        (hyperlink (ref->url ref) (ref-style ref title))
         (TODO title "(broken link)"))))
-
-(module+ main
-  (require macro-debugger/expand)
-  #;(expand-only #'(define-apple-documentation-links ("NSObject" (apple-ref "ns/object/link")))
-               (list #'define-apple-documentation-links))
-  (define-documentation-links ("NSObject" (apple-ref "ns/object/link")))
-  (lookup-apple-url "NSObject"))
