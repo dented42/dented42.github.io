@@ -5,7 +5,7 @@
           "utils/scribble.rkt")
 
 @(define-documentation-links
-   ("NSViewController" (cocoa-class-ref "cocoa/reference/" "NSViewController")))
+   ("NSViewController" (cocoa-class-ref "mac" "cocoa" "NSViewController")))
 
 Title: Inspectors and Panels in Cocoa
 Date: 2014-08-18T18:06:47

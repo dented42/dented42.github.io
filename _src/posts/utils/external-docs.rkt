@@ -37,16 +37,17 @@
                (define api-ref? (const #f))
                (define (ref-style ref content) content)])
 
-(struct cocoa-class-ref (base class)
+(struct cocoa-class-ref (sdk base class)
   #:transparent
   #:methods gen:url-ref
   [(define api-ref? (const #t))
    (define (ref-style ref content)
      (racketidfont content))
    (define (ref->url ref deps)
-     (apple-url "mac/documentation/"
+     (apple-url (cocoa-class-ref-sdk ref)
+                "/documentation/"
                 (cocoa-class-ref-base ref)
-                "/"
+                "/reference/"
                 (cocoa-class-ref-class ref)
                 "_Class"))])
 
