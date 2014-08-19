@@ -1,6 +1,6 @@
 #lang racket
 
-(provide TODO)
+(provide TODO #;preview)
 
 (require scribble/base
          scribble/core)
@@ -10,3 +10,7 @@
   ((compose larger italic bold)
    (elem #:style (style #f `(,(color-property "red")))
          "TODO: " t)))
+
+;;; this could eventually get rid of needing the <!-- more --> comment, which is quite annoying.
+(define (preview . content)
+  (list content #;(more)))
