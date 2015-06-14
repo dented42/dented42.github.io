@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>The Unnamed Blog of Stuff: All Posts</title>
-  <description>The Unnamed Blog of Stuff: All Posts</description>
+  <title>The Unnamed Blog of Stuff: The Unnamed Blog of Stuff</title>
+  <description>The Unnamed Blog of Stuff: The Unnamed Blog of Stuff</description>
   <link>http://blog.fortlogic.net/index.html</link>
-  <lastBuildDate>Fri, 13 Jun 2014 22:50:12 MDT</lastBuildDate>
-  <pubDate>Fri, 13 Jun 2014 22:50:12 MDT</pubDate>
+  <lastBuildDate>Sat, 14 Jun 2014 04:50:12 UT</lastBuildDate>
+  <pubDate>Sat, 14 Jun 2014 04:50:12 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>First Post!</title>
    <link>http://blog.fortlogic.net/blog/2014/06/13/first-post/?utm_source=all&amp;utm_medium=RSS</link>
    <guid>urn:http-blog-fortlogic-net:-blog-2014-06-13-first-post</guid>
-   <pubDate>Fri, 13 Jun 2014 22:50:12 MDT</pubDate>
-   <description>
-&lt;html&gt;&lt;img src="http://blog.fortlogic.net/img/1x1.gif?utm_source=all&amp;amp;utm_medium=RSS&amp;amp;utm_campaign=%2Fblog%2F2014%2F06%2F13%2Ffirst-post%2F" height="1" width="1" /&gt;
- &lt;p&gt;Huzzah! Wewewew! Will you look at that, first post.&lt;/p&gt;
- &lt;p&gt;Hi everyone, I&amp;rsquo;m Matias Eyzaguirre and &lt;span style="font-style: italic"&gt;this&lt;/span&gt; is my blog of stuff. Here you will find lots of
+   <pubDate>Sat, 14 Jun 2014 04:50:12 UT</pubDate>
+   <description>&lt;html&gt;
+&lt;p&gt;Huzzah! Wewewew! Will you look at that, first post.&lt;/p&gt;
+
+&lt;p&gt;Hi everyone, I&amp;rsquo;m Matias Eyzaguirre and &lt;span style="font-style: italic"&gt;this&lt;/span&gt; is my blog of stuff. Here you will find lots of
 cool things and projects of mine, in addition to ramblings about life, the universe, and everything.&lt;/p&gt;
- &lt;p&gt;As I said, I am Matias Eyzaguirre. I am a 23 year old gay male living in Utah. I like math,
+&lt;!--more--&gt;
+
+&lt;p&gt;As I said, I am Matias Eyzaguirre. I am a 23 year old gay male living in Utah. I like math,
 programming, science fiction, crochet, and tatting among other things. A problem with trying to
 describe myself is that it&amp;rsquo;s hard to prevent it from sounding like a personals ad, so I think I&amp;rsquo;ll
 stop here.&lt;/p&gt;
- &lt;p&gt;A blog seems like the sort of thing that someone like me would have, and I&amp;rsquo;ve been thinking of
+
+&lt;p&gt;A blog seems like the sort of thing that someone like me would have, and I&amp;rsquo;ve been thinking of
 starting one for a while now. Thinking about it won&amp;rsquo;t do much by itself, so It&amp;rsquo;s time to stop putting
 it off and just &lt;span style="font-style: italic"&gt;do&lt;/span&gt; it.&lt;/p&gt;
- &lt;p&gt;I&amp;rsquo;ll be honest, I&amp;rsquo;m still not really sure what kind of material will go into this blog. It&amp;rsquo;ll probably
+
+&lt;p&gt;I&amp;rsquo;ll be honest, I&amp;rsquo;m still not really sure what kind of material will go into this blog. It&amp;rsquo;ll probably
 end up consisting of posts about math or programming, along with little programming how-tos for
 various tasks that I find myself needing to do without any documentation to rely on. And of course
 I&amp;rsquo;ll also do write-ups of any mini-projects that I think are interesting, and possible progress
